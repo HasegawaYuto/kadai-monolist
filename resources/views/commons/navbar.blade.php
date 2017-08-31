@@ -41,7 +41,7 @@ avbar-collapse-1" aria-expanded="false">
                         </li>
                     @else
                         <li><a href="{{ route('signup.get') }}">新規登録</a></li>
-                        <li><a href="#">ログイン</a></li>
+                        <li><a href="{{ route('login.get') }}">ログイン</a></li>
                     @endif
                 </ul>
             </div>

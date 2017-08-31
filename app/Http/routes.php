@@ -25,4 +25,7 @@ Route::group(['middleware' => 'auth'], function () {
     Route::post('want', 'ItemsUserController@want')->name('item_user.want');
     Route::delete('want', 'ItemsUserController@dont_want')->name('item_user.dont_want');
     Route::resource('users', 'UsersController', ['only' => ['show']]);
+    
+    Route::post('have', 'ItemsUserController@have')->name('item_user.have');
+    Route::delete('have', 'ItemsUserController@dont_have')->name('item_user.dont_have');
 });

@@ -19,3 +19,10 @@ Route::post('signup', 'Auth\AuthController@postRegister')->name('signup.post');
 Route::get('login', 'Auth\AuthController@getLogin')->name('login.get');
 Route::post('login', 'Auth\AuthController@postLogin')->name('login.post');
 Route::get('logout', 'Auth\AuthController@getLogout')->name('logout.get');
+//ログインユーザーのみ
+Route::group(['middleware' => 'auth'], function () {
+    Route::resource('items', 'ItemsController', ['only' => ['create', 'show']]);
+    Route::post('want', 'ItemsUserController@want')->name('item_user.want');
+    Route::delete('want', 'ItemsUserController@dont_want')->name('item_user.dont_want');
+    Route::resource('users', 'UsersController', ['only' => ['show']]);
+});
